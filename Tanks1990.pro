@@ -18,9 +18,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     addtank.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    tank.cpp
 
 HEADERS += \
+    Tank.h \
     addtank.h \
     mainwindow.h
 

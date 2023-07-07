@@ -2,6 +2,7 @@
 #define ADDTANK_H
 
 #include <QDialog>
+#include "Tank.h"
 
 namespace Ui {
 class AddTank;
@@ -14,7 +15,8 @@ class AddTank : public QDialog
 public:
     explicit AddTank(QWidget *parent = nullptr);
     ~AddTank();
-
+    Tank *tank;
+    bool result;
 private slots:
     void on_BtnOk_clicked();
 
