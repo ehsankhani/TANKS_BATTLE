@@ -19,16 +19,19 @@ SOURCES += \
     addtank.cpp \
     main.cpp \
     mainwindow.cpp \
+    playerinfoui.cpp \
     tank.cpp
 
 HEADERS += \
     Tank.h \
     addtank.h \
-    mainwindow.h
+    mainwindow.h \
+    playerinfoui.h
 
 FORMS += \
     addtank.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    playerinfoui.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

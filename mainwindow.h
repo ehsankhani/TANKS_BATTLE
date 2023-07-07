@@ -19,6 +19,8 @@ public:
 private slots:
     void on_BtnNewTank_clicked();
 
+    void on_BtnPlay_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
