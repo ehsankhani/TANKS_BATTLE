@@ -18,5 +18,10 @@ MainWindow::~MainWindow()
 void MainWindow::on_BtnNewTank_clicked()
 {
     AddTank a(this);
+    a.Tanks = this->Tanks;
     a.exec();
+    if(a.result)
+    {
+        this->Tanks.append(*a.tank);
+    }
 }

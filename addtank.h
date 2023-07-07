@@ -16,6 +16,7 @@ public:
     explicit AddTank(QWidget *parent = nullptr);
     ~AddTank();
     Tank *tank;
+    QList<Tank> Tanks;
     bool result;
 private slots:
     void on_BtnOk_clicked();

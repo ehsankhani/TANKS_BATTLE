@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>481</height>
+    <height>510</height>
    </rect>
   </property>
   <property name="font">
@@ -177,7 +177,7 @@
       </size>
      </property>
      <property name="inputMask">
-      <string>0</string>
+      <string>000</string>
      </property>
     </widget>
    </item>

@@ -30,7 +30,7 @@ void AddTank::on_BtnOk_clicked()
         QString speed = ui->TxtSpeed->text().trimmed();
         if(speed == "")
         {
-            QMessageBox::question(this, "لطفا سرعت تانک را وارد کنید", "پیغام", QMessageBox::Ok);
+            QMessageBox::question(this, "پیغام", "لطفا سرعت تانک را وارد کنید", QMessageBox::Ok);
             ui->TxtSpeed->setFocus();
             return;
         }
@@ -40,7 +40,7 @@ void AddTank::on_BtnOk_clicked()
             QString power = ui->TxtBulletPower->text().trimmed();
             if(power == "")
             {
-                QMessageBox::question(this, "لطفا قدرت شلیک تانک را وارد کنید", "پیغام", QMessageBox::Ok);
+                QMessageBox::question(this, "پیغام", "لطفا قدرت شلیک تانک را وارد کنید", QMessageBox::Ok);
                 ui->TxtBulletPower->setFocus();
                 return;
             }
@@ -50,38 +50,53 @@ void AddTank::on_BtnOk_clicked()
                 QString shild = ui->TxtShild->text().trimmed();
                 if(shild == "")
                 {
-                    QMessageBox::question(this, "لطفا تحمل زره تانک را وارد کنید", "پیغام", QMessageBox::Ok);
+                    QMessageBox::question(this, "پیغام", "لطفا تحمل زره تانک را وارد کنید", QMessageBox::Ok);
                     ui->TxtShild->setFocus();
                     return;
                 }
                 int tankShild = shild.toInt();
                 if(tankShild >= 10 && tankShild <= 100)
                 {
+                    bool find = false;
+                    for(int i = 0; i < this->Tanks.length(); i++)
+                    {
+                        if(this->Tanks[i].GetName() == tankName)
+                        {
+                            find = true;
+                            break;
+                        }
+                    }
+                    if(find)
+                    {
+                        QMessageBox::question(this, "پیغام", "تانکی با این اسم قبلا ثبت شده است", QMessageBox::Ok);
+                        ui->TxtName->setFocus();
+                        return;
+                    }
                     this->tank = new Tank(tankName, tankSpeed, tankPower, tankShild, ui->CmbColor->currentIndex() + 1);
                     result = true;
-                    QMessageBox::question(this, "اطلاعات تانک با موفقیت ذخیره شد", "پیغام", QMessageBox::Ok);
+                    QMessageBox::question(this, "پیغام", "اطلاعات تانک با موفقیت ذخیره شد", QMessageBox::Ok);
                     this->close();
                 }
                 else
                 {
-                    QMessageBox::question(this, "تحمل زره تانک باید بین 10 تا 100 باشد", "پیغام", QMessageBox::Ok);
+                    QMessageBox::question(this, "پیغام", "تحمل زره تانک باید بین 10 تا 100 باشد", QMessageBox::Ok);
                     ui->TxtShild->setFocus();
                 }
             }
             else
             {
-                QMessageBox::question(this, "قدرت شلیک تانک باید بین 1 تا 5 باشد", "پیغام", QMessageBox::Ok);
+                QMessageBox::question(this, "پیغام", "قدرت شلیک تانک باید بین 1 تا 5 باشد", QMessageBox::Ok);
                 ui->TxtBulletPower->setFocus();
             }
         }
         else
         {
-            QMessageBox::question(this, "سرعت تانک باید بین 1 تا 5 باشد", "پیغام", QMessageBox::Ok);
+            QMessageBox::question(this, "پیغام", "سرعت تانک باید بین 1 تا 5 باشد", QMessageBox::Ok);
             ui->TxtSpeed->setFocus();
         }
     }
     catch(QString)
     {
-        QMessageBox::question(this, "اطلاعات وارد شده نامعتبر است", "پیغام", QMessageBox::Ok);
+        QMessageBox::question(this, "پیغام", "اطلاعات وارد شده نامعتبر است", QMessageBox::Ok);
     }
 }
