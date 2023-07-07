@@ -16,11 +16,6 @@ public:
     explicit PlayerInfoUI(QList<Tank> tanks, QWidget *parent = nullptr);
     ~PlayerInfoUI();
     QList<Tank> Tanks;
-private slots:
-    void on_CmbTankPlayerOne_currentIndexChanged(const QString &arg1);
-
-    void on_CmbTankPlayerTwo_currentIndexChanged(const QString &arg1);
-
 private:
     Ui::PlayerInfoUI *ui;
 };
