@@ -1,12 +1,18 @@
 #include "player.h"
 #include "qstring.h"
 #include "Tank.h"
+#include <QGraphicsScene>
+#include <QKeyEvent>
+#include <QTimer>
 
-Player::Player(QString name, Tank *tank, int health)
+Player::Player(QString name, Tank *tank, QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
 {
     this->Name = name;
     this->tank = tank;
-    this->Health = health;
+    this->Health = tank->GetShild();
+    QTimer *flagtimer = new QTimer();
+    connect(flagtimer, SIGNAL(timeout()), this, SLOT(set_flag()));
+    flagtimer -> start(1000);
 }
 
 QString Player::GetName()
@@ -21,4 +27,9 @@ int Player::GetHealth()
 void Player::BeingShot(int firePower)
 {
     this->Health -= firePower;
+}
+
+void Player::set_flag()
+{
+    flag = true;
 }

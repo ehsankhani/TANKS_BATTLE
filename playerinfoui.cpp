@@ -1,5 +1,8 @@
 #include "playerinfoui.h"
 #include "ui_playerinfoui.h"
+#include "qmessagebox.h"
+#include "game.h"
+#include "player.h"
 
 PlayerInfoUI::PlayerInfoUI(QList<Tank> tanks, QWidget *parent) :
     QDialog(parent),
@@ -91,5 +94,33 @@ void PlayerInfoUI::on_CmbTankPlayerTwo_currentIndexChanged(const QString &arg1)
 
 void PlayerInfoUI::on_BtnPlay_clicked()
 {
+    if(ui->TxtNamePlayerOne->text().trimmed() == "")
+    {
+        QMessageBox::question(this, "پیغام", "لطفا نام بازیکن اول را وارد کنید", QMessageBox::Ok);
+        ui->TxtNamePlayerOne->setFocus();
+    }
+    else if(ui->TxtNamePlayerTwo->text().trimmed() == "")
+    {
+        QMessageBox::question(this, "پیغام", "لطفا نام بازیکن دوم را وارد کنید", QMessageBox::Ok);
+        ui->TxtNamePlayerTwo->setFocus();
+    }
+    else
+    {
+        int tankOne = -1, tankTwo = -1;
+        for(int i = 0; i < this->Tanks.length(); i++)
+        {
+            if(this->Tanks[i].GetName() == ui->CmbTankPlayerOne->currentText())
+            {
+                tankOne = i;
+            }
 
+            if(this->Tanks[i].GetName() == ui->CmbTankPlayerTwo->currentText())
+            {
+                tankTwo = i;
+            }
+        }
+        Player *playerOne = new Player(ui->TxtNamePlayerOne->text().trimmed(), &this->Tanks[tankOne]);
+        Player *playerTwo = new Player(ui->TxtNamePlayerTwo->text().trimmed(), &this->Tanks[tankTwo]);
+        Game *game = new Game(playerOne, playerTwo);
+    }
 }
