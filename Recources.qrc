@@ -1,8 +1,11 @@
 <RCC>
-    <qresource prefix="/new/Tank">
+    <qresource prefix="/new/Images">
         <file>TankImages/Tank_Blue_Down.png</file>
         <file>TankImages/Tank_Blue_Left.png</file>
         <file>TankImages/Tank_Blue_Right.png</file>
         <file>TankImages/Tank_Blue_UP.png</file>
+        <file>OtherImage/wall.png</file>
+        <file>OtherImage/box.png</file>
+        <file>OtherImage/Forest.png</file>
     </qresource>
 </RCC>

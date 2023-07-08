@@ -17,20 +17,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     addtank.cpp \
+    boxitem.cpp \
+    forest.cpp \
     game.cpp \
     main.cpp \
     mainwindow.cpp \
+    map.cpp \
     player.cpp \
     playerinfoui.cpp \
-    tank.cpp
+    tank.cpp \
+    wall.cpp
 
 HEADERS += \
     Tank.h \
     addtank.h \
+    boxitem.h \
+    forest.h \
     game.h \
     mainwindow.h \
+    map.h \
     player.h \
-    playerinfoui.h
+    playerinfoui.h \
+    wall.h
 
 FORMS += \
     addtank.ui \

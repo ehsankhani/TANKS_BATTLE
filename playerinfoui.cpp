@@ -4,16 +4,21 @@
 #include "game.h"
 #include "player.h"
 
-PlayerInfoUI::PlayerInfoUI(QList<Tank> tanks, QWidget *parent) :
+PlayerInfoUI::PlayerInfoUI(QList<Tank> tanks, QList<Map> maps, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PlayerInfoUI)
 {
     ui->setupUi(this);
     this->Tanks = tanks;
+    this->Maps = maps;
     for(int i = 0; i < this->Tanks.length(); i++)
     {
         ui->CmbTankPlayerOne->addItem(this->Tanks[i].GetName());
         ui->CmbTankPlayerTwo->addItem(this->Tanks[i].GetName());
+    }
+    for(int i = 0; i < this->Maps.length(); i++)
+    {
+        ui->CmbMap->addItem(this->Maps[i].GetName());
     }
 }
 
@@ -119,8 +124,18 @@ void PlayerInfoUI::on_BtnPlay_clicked()
                 tankTwo = i;
             }
         }
+        int mapIndex = -1;
+        for(int i = 0; i < this->Maps.length(); i++)
+        {
+            if(this->Maps[i].GetName() == ui->CmbMap->currentText())
+            {
+                mapIndex = i;
+                break;
+            }
+        }
         Player *playerOne = new Player(ui->TxtNamePlayerOne->text().trimmed(), &this->Tanks[tankOne]);
         Player *playerTwo = new Player(ui->TxtNamePlayerTwo->text().trimmed(), &this->Tanks[tankTwo]);
-        Game *game = new Game(playerOne, playerTwo);
+        Game *game = new Game(playerOne, playerTwo, &this->Maps[mapIndex]);
+        this->close();
     }
 }

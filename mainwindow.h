@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "Tank.h"
+#include "map.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +17,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QList<Tank> Tanks;
+    QList<Map> Maps;
 private slots:
     void on_BtnNewTank_clicked();
 

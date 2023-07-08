@@ -10,6 +10,7 @@ Player::Player(QString name, Tank *tank, QGraphicsItem *parent) : QGraphicsPixma
     this->Name = name;
     this->tank = tank;
     this->Health = tank->GetShild();
+    setPixmap(QPixmap(":/new/Images/TankImages/Tank_Blue_Down.png"));
     QTimer *flagtimer = new QTimer();
     connect(flagtimer, SIGNAL(timeout()), this, SLOT(set_flag()));
     flagtimer -> start(1000);
@@ -27,6 +28,11 @@ int Player::GetHealth()
 void Player::BeingShot(int firePower)
 {
     this->Health -= firePower;
+}
+
+void Player::keyPressEvent(QKeyEvent *event)
+{
+
 }
 
 void Player::set_flag()

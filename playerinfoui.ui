@@ -219,29 +219,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="lblname_10">
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
+       <widget class="QComboBox" name="CmbMap">
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
         </property>
        </widget>
       </item>
