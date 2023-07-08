@@ -12,7 +12,7 @@ class WinnerInfo : public QDialog
     Q_OBJECT
 
 public:
-    explicit WinnerInfo(QWidget *parent = nullptr);
+    explicit WinnerInfo(QString playerName, QString tankName, int score, int shild, QWidget *parent = nullptr);
     ~WinnerInfo();
 
 private:

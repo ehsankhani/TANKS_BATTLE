@@ -6,8 +6,8 @@ Game *game;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    game = new Game();
     MainWindow w;
+    game = new Game(&w);
     Tank *tank = new Tank("پانزر", 3, 3, 20, 1);
     Tank *tank2 = new Tank("تایگر", 4, 4, 15, 2);
     Tank *tank3 = new Tank("آبراهام", 5, 2, 15, 3);

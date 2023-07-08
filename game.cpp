@@ -7,10 +7,12 @@
 #include <QGraphicsTextItem>
 #include <QFont>
 #include <QImage>
+#include "winnerinfo.h"
+#include "mainwindow.h"
 
 Game::Game(QWidget *parent)
 {
-
+    this->Parent = parent;
 }
 
 void Game::Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *parent)
@@ -20,7 +22,7 @@ void Game::Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *pa
     this->MapIndex = mapIndex;
     this->Parent = parent;
     QGraphicsScene *scene = new QGraphicsScene();
-    QGraphicsView *view = new QGraphicsView(scene);
+    view = new QGraphicsView(scene);
     scene->setBackgroundBrush(QBrush(Qt::white));
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -222,11 +224,24 @@ void Game::ReduceHealth(int power, bool firstPlayer)
     {
         PlayerTwo->BeingShot(power);
         ShildTwo->SetMessage(this->PlayerTwo->GetName() + " : " + QString::number(this->PlayerTwo->GetHealth()));
-
+        if(PlayerTwo->GetHealth() <= 0)
+        {
+            view->close();
+            WinnerInfo winner(PlayerOne->GetName(), PlayerOne->tank->GetName(), PlayerTwo->tank->GetShild(), PlayerOne->GetHealth());
+            winner.exec();
+            this->Parent->show();
+        }
     }
     else
     {
         PlayerOne->BeingShot(power);
         ShildOne->SetMessage(this->PlayerOne->GetName() + " : " + QString::number(this->PlayerOne->GetHealth()));
+        if(PlayerOne->GetHealth() <= 0)
+        {
+            view->close();
+            WinnerInfo winner(PlayerTwo->GetName(), PlayerTwo->tank->GetName(), PlayerOne->tank->GetShild(), PlayerTwo->GetHealth());
+            winner.exec();
+            this->Parent->show();
+        }
     }
 }

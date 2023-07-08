@@ -17,11 +17,11 @@ private:
     QWidget *Parent;
     MessageItem *ShildOne;
     MessageItem *ShildTwo;
+    QGraphicsView *view;
 public:
     QList<Map> Maps;
     QList<Tank> Tanks;
     int MapIndex;
-    QGraphicsScene *scene;
     Game(QWidget *parent=0);
 public slots:
     void Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *parent=0);
