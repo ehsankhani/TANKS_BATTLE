@@ -38,7 +38,16 @@ void Bullet::move()
             delete this;
             return;
         }
-        else if(typeid(*(colliding_items[i])) == typeid(Bullet) || typeid(*(colliding_items[i])) == typeid(BoxItem))
+        else if(typeid(*(colliding_items[i])) == typeid(BoxItem))
+        {
+            game->Maps[game->MapIndex].SetBoard((colliding_items[i]->y() - 30) / 50, colliding_items[i]->x() / 50, 0);
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+            delete colliding_items[i];
+            delete this;
+            return;
+        }
+        else if(typeid(*(colliding_items[i])) == typeid(Bullet))
         {
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);

@@ -71,7 +71,6 @@ void Game::Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *pa
     QMediaPlayer *music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/new/Musics/Musics/bgsound.mp3"));
     music->play();
-    playerOne->setFocus();
 }
 
 void Game::KeySend(int keyInfo)
