@@ -60,6 +60,7 @@ void MainWindow::on_BtnNewTank_clicked()
 void MainWindow::on_BtnPlay_clicked()
 {
     PlayerInfoUI p(this->Tanks, this->Maps, this);
+    p.game = this->game;
     this->hide();
     p.exec();
 }

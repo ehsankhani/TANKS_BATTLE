@@ -5,6 +5,7 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
+#include <QGraphicsView>
 
 class Player:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -18,8 +19,10 @@ public:
     void keyPressEvent(QKeyEvent *event);
     QString GetName();
     int GetHealth();
+    void ChangeDirection();
     void BeingShot(int firePower);
     bool flag = true;
+    bool dirFlag = true;
 public slots:
     void set_flag();
 };

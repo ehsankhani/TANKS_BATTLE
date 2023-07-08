@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QTimer>
+#include "game.h"
 
 Player::Player(QString name, Tank *tank, bool firstPlayer, QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
 {
@@ -76,9 +77,10 @@ void Player::BeingShot(int firePower)
     this->Health -= firePower;
 }
 
+extern Game *game;
 void Player::keyPressEvent(QKeyEvent *event)
 {
-
+   game->KeySend(event->key());
 }
 
 void Player::set_flag()

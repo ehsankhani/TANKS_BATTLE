@@ -8,7 +8,12 @@
 #include <QFont>
 #include <QImage>
 
-Game::Game(Player *playerOne, Player *playerTwo, Map *board, QWidget *parent)
+Game::Game(QWidget *parent)
+{
+
+}
+
+void Game::Start(Player *playerOne, Player *playerTwo, Map *board, QWidget *parent)
 {
     this->PlayerOne = playerOne;
     this->PlayerTwo = playerTwo;
@@ -22,8 +27,11 @@ Game::Game(Player *playerOne, Player *playerTwo, Map *board, QWidget *parent)
     view->setFixedSize(this->Board->GetBoard()[0].length() * 50 + 5, this->Board->GetBoard().length() * 50 + 35);
     scene->setSceneRect(0, 0, this->Board->GetBoard()[0].length() * 50 + 5, this->Board->GetBoard().length() * 50 + 35);
     view->show();
-    this->ShildOne = new MessageItem(this->PlayerOne->GetName() + " : " + this->PlayerOne->GetHealth(), this->PlayerOne->tank->GetColor());
-    this->ShildTwo = new MessageItem(this->PlayerTwo->GetName() + " : " + this->PlayerTwo->GetHealth(), this->PlayerTwo->tank->GetColor());
+    this->ShildOne = new MessageItem(this->PlayerOne->GetName() + " : " + QString::number(this->PlayerOne->GetHealth()), this->PlayerOne->tank->GetColor());
+    this->ShildTwo = new MessageItem(this->PlayerTwo->GetName() + " : " + QString::number(this->PlayerTwo->GetHealth()), this->PlayerTwo->tank->GetColor());
+    this->ShildTwo->setPos(1000, 0);
+    scene->addItem(ShildOne);
+    scene->addItem(ShildTwo);
     for(int i = 0; i < board->GetBoard().length(); i++)
     {
         for(int j = 0; j < board->GetBoard()[i].length(); j++)
@@ -53,10 +61,16 @@ Game::Game(Player *playerOne, Player *playerTwo, Map *board, QWidget *parent)
             else if(board->GetBoard()[i][j] == 6)
             {
                 scene->addItem(PlayerTwo);
-                PlayerTwo->setFlag(QGraphicsItem::ItemIsFocusable);
-                PlayerTwo->setFocus();
                 PlayerTwo->setPos(j * 50, i * 50 + 30);
             }
         }
+    }
+}
+
+void Game::KeySend(int keyInfo)
+{
+    if(keyInfo == Qt::Key_D)
+    {
+
     }
 }

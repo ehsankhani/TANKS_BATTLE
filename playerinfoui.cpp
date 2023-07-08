@@ -136,7 +136,7 @@ void PlayerInfoUI::on_BtnPlay_clicked()
         }
         Player *playerOne = new Player(ui->TxtNamePlayerOne->text().trimmed(), &this->Tanks[tankOne], true);
         Player *playerTwo = new Player(ui->TxtNamePlayerTwo->text().trimmed(), &this->Tanks[tankTwo], false);
-        Game *game = new Game(playerOne, playerTwo, &this->Maps[mapIndex], this->Parent);
+        game->Start(playerOne, playerTwo, &this->Maps[mapIndex], this->Parent);
         this->close();
     }
 }

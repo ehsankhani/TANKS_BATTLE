@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "Tank.h"
 #include "map.h"
+#include "game.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,6 +19,7 @@ public:
     ~MainWindow();
     QList<Tank> Tanks;
     QList<Map> Maps;
+    Game *game;
 private slots:
     void on_BtnNewTank_clicked();
 

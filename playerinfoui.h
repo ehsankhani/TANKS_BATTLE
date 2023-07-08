@@ -5,6 +5,7 @@
 #include "Tank.h"
 #include "map.h"
 #include <QWidget>
+#include "game.h"
 
 namespace Ui {
 class PlayerInfoUI;
@@ -19,6 +20,7 @@ public:
     ~PlayerInfoUI();
     QList<Tank> Tanks;
     QList<Map> Maps;
+    Game *game;
     QWidget *Parent;
 private slots:
     void on_CmbTankPlayerOne_currentIndexChanged(const QString &arg1);

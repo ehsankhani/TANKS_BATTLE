@@ -26,3 +26,8 @@ MessageItem::MessageItem(QString message, int color, QGraphicsItem *parent)
     }
     setFont(QFont("times", 16));
 }
+
+void MessageItem::SetMessage(QString message)
+{
+    setPlainText(message);
+}

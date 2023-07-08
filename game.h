@@ -18,7 +18,9 @@ private:
     MessageItem *ShildTwo;
 public:
     QGraphicsScene *scene;
-    Game(Player *playerOne, Player *playerTwo, Map *board, QWidget *parent=0);
+    Game(QWidget *parent=0);
+    void Start(Player *playerOne, Player *playerTwo, Map *board, QWidget *parent=0);
+    void KeySend(int keyInfo);
 };
 
 #endif // GAME_H
