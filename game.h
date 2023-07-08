@@ -2,24 +2,28 @@
 #define GAME_H
 #include "player.h"
 #include "map.h"
+#include "Tank.h"
 #include "messageitem.h"
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
+#include <QList>
 
 class Game:public QGraphicsView
 {
 private:
     Player *PlayerOne;
     Player *PlayerTwo;
-    Map *Board;
     QWidget *Parent;
     MessageItem *ShildOne;
     MessageItem *ShildTwo;
 public:
+    QList<Map> Maps;
+    QList<Tank> Tanks;
+    int MapIndex;
     QGraphicsScene *scene;
     Game(QWidget *parent=0);
-    void Start(Player *playerOne, Player *playerTwo, Map *board, QWidget *parent=0);
+    void Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *parent=0);
     void KeySend(int keyInfo);
 };
 

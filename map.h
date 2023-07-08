@@ -6,12 +6,13 @@
 class Map
 {
 private:
-    QList<QList<int>> Board;
     QString Name;
+    QList<QList<int>> Board;
 public:
     Map(QString name, QList<QList<int>> board);
-    QList<QList<int>> GetBoard();
     QString GetName();
+    QList<QList<int>> GetBoard();
+    void SetBoard(int i, int j, int value);
 };
 
 #endif // MAP_H

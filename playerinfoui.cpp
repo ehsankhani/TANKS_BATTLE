@@ -4,22 +4,21 @@
 #include "game.h"
 #include "player.h"
 
-PlayerInfoUI::PlayerInfoUI(QList<Tank> tanks, QList<Map> maps, QWidget *parent) :
+extern Game *game;
+PlayerInfoUI::PlayerInfoUI(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PlayerInfoUI)
 {
     ui->setupUi(this);
     this->Parent = parent;
-    this->Tanks = tanks;
-    this->Maps = maps;
-    for(int i = 0; i < this->Tanks.length(); i++)
+    for(int i = 0; i < game->Tanks.length(); i++)
     {
-        ui->CmbTankPlayerOne->addItem(this->Tanks[i].GetName());
-        ui->CmbTankPlayerTwo->addItem(this->Tanks[i].GetName());
+        ui->CmbTankPlayerOne->addItem(game->Tanks[i].GetName());
+        ui->CmbTankPlayerTwo->addItem(game->Tanks[i].GetName());
     }
-    for(int i = 0; i < this->Maps.length(); i++)
+    for(int i = 0; i < game->Maps.length(); i++)
     {
-        ui->CmbMap->addItem(this->Maps[i].GetName());
+        ui->CmbMap->addItem(game->Maps[i].GetName());
     }
 }
 
@@ -30,16 +29,16 @@ PlayerInfoUI::~PlayerInfoUI()
 
 void PlayerInfoUI::on_CmbTankPlayerOne_currentIndexChanged(const QString &arg1)
 {
-    for(int i = 0; i < this->Tanks.length(); i++)
+    for(int i = 0; i < game->Tanks.length(); i++)
     {
-        if(this->Tanks[i].GetName() == arg1)
+        if(game->Tanks[i].GetName() == arg1)
         {
-            ui->LblTankNameOne->setText("نام : " + this->Tanks[i].GetName());
-            ui->LblTankSpeedOne->setText("سرعت : " + QString::number(this->Tanks[i].GetSpeed()));
-            ui->LblTankPowerOne->setText("قدرت : " + QString::number(this->Tanks[i].GetPower()));
-            ui->LblTankShildOne->setText("تحمل زره : " + QString::number(this->Tanks[i].GetShild()));
+            ui->LblTankNameOne->setText("نام : " + game->Tanks[i].GetName());
+            ui->LblTankSpeedOne->setText("سرعت : " + QString::number(game->Tanks[i].GetSpeed()));
+            ui->LblTankPowerOne->setText("قدرت : " + QString::number(game->Tanks[i].GetPower()));
+            ui->LblTankShildOne->setText("تحمل زره : " + QString::number(game->Tanks[i].GetShild()));
             QString result = "رنگ : ";
-            switch (this->Tanks[i].GetColor())
+            switch (game->Tanks[i].GetColor())
             {
             case 1:
                 result += "قرمز";
@@ -65,16 +64,16 @@ void PlayerInfoUI::on_CmbTankPlayerOne_currentIndexChanged(const QString &arg1)
 
 void PlayerInfoUI::on_CmbTankPlayerTwo_currentIndexChanged(const QString &arg1)
 {
-    for(int i = 0; i < this->Tanks.length(); i++)
+    for(int i = 0; i < game->Tanks.length(); i++)
     {
-        if(this->Tanks[i].GetName() == arg1)
+        if(game->Tanks[i].GetName() == arg1)
         {
-            ui->LblTankNameTwo->setText("نام : " + this->Tanks[i].GetName());
-            ui->LblTankSpeedTwo->setText("سرعت : " + QString::number(this->Tanks[i].GetSpeed()));
-            ui->LblTankPowerTwo->setText("قدرت : " + QString::number(this->Tanks[i].GetPower()));
-            ui->LblTankShildTwo->setText("تحمل زره : " + QString::number(this->Tanks[i].GetShild()));
+            ui->LblTankNameTwo->setText("نام : " + game->Tanks[i].GetName());
+            ui->LblTankSpeedTwo->setText("سرعت : " + QString::number(game->Tanks[i].GetSpeed()));
+            ui->LblTankPowerTwo->setText("قدرت : " + QString::number(game->Tanks[i].GetPower()));
+            ui->LblTankShildTwo->setText("تحمل زره : " + QString::number(game->Tanks[i].GetShild()));
             QString result = "رنگ : ";
-            switch (this->Tanks[i].GetColor())
+            switch (game->Tanks[i].GetColor())
             {
             case 1:
                 result += "قرمز";
@@ -113,30 +112,30 @@ void PlayerInfoUI::on_BtnPlay_clicked()
     else
     {
         int tankOne = -1, tankTwo = -1;
-        for(int i = 0; i < this->Tanks.length(); i++)
+        for(int i = 0; i < game->Tanks.length(); i++)
         {
-            if(this->Tanks[i].GetName() == ui->CmbTankPlayerOne->currentText())
+            if(game->Tanks[i].GetName() == ui->CmbTankPlayerOne->currentText())
             {
                 tankOne = i;
             }
 
-            if(this->Tanks[i].GetName() == ui->CmbTankPlayerTwo->currentText())
+            if(game->Tanks[i].GetName() == ui->CmbTankPlayerTwo->currentText())
             {
                 tankTwo = i;
             }
         }
         int mapIndex = -1;
-        for(int i = 0; i < this->Maps.length(); i++)
+        for(int i = 0; i < game->Maps.length(); i++)
         {
-            if(this->Maps[i].GetName() == ui->CmbMap->currentText())
+            if(game->Maps[i].GetName() == ui->CmbMap->currentText())
             {
                 mapIndex = i;
                 break;
             }
         }
-        Player *playerOne = new Player(ui->TxtNamePlayerOne->text().trimmed(), &this->Tanks[tankOne], true);
-        Player *playerTwo = new Player(ui->TxtNamePlayerTwo->text().trimmed(), &this->Tanks[tankTwo], false);
-        game->Start(playerOne, playerTwo, &this->Maps[mapIndex], this->Parent);
+        Player *playerOne = new Player(ui->TxtNamePlayerOne->text().trimmed(), &game->Tanks[tankOne], true);
+        Player *playerTwo = new Player(ui->TxtNamePlayerTwo->text().trimmed(), &game->Tanks[tankTwo], false);
+        game->Start(playerOne, playerTwo, mapIndex, this->Parent);
         this->close();
     }
 }

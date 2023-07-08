@@ -17,9 +17,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QList<Tank> Tanks;
-    QList<Map> Maps;
-    Game *game;
 private slots:
     void on_BtnNewTank_clicked();
 

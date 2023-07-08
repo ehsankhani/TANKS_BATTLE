@@ -2,6 +2,7 @@
 #include "ui_addtank.h"
 #include "qmessagebox.h"
 #include "Tank.h"
+#include "game.h"
 
 AddTank::AddTank(QWidget *parent) :
     QDialog(parent),
@@ -16,6 +17,7 @@ AddTank::~AddTank()
     delete ui;
 }
 
+extern Game *game;
 void AddTank::on_BtnOk_clicked()
 {
     QString tankName = ui->TxtName->text().trimmed();
@@ -58,9 +60,9 @@ void AddTank::on_BtnOk_clicked()
                 if(tankShild >= 10 && tankShild <= 100)
                 {
                     bool find = false;
-                    for(int i = 0; i < this->Tanks.length(); i++)
+                    for(int i = 0; i < game->Tanks.length(); i++)
                     {
-                        if(this->Tanks[i].GetName() == tankName)
+                        if(game->Tanks[i].GetName() == tankName)
                         {
                             find = true;
                             break;
