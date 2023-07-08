@@ -23,8 +23,10 @@ public:
     int MapIndex;
     QGraphicsScene *scene;
     Game(QWidget *parent=0);
+public slots:
     void Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *parent=0);
     void KeySend(int keyInfo);
+    void ReduceHealth(int power, bool firstPlayer);
 };
 
 #endif // GAME_H

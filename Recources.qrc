@@ -23,5 +23,9 @@
         <file>TankImages/Tank_Yellow_Left.png</file>
         <file>TankImages/Tank_Yellow_Right.png</file>
         <file>TankImages/Tank_Yellow_UP.png</file>
+        <file>FireImages/Fire_Down.png</file>
+        <file>FireImages/Fire_Left.png</file>
+        <file>FireImages/Fire_Right.png</file>
+        <file>FireImages/Fire_UP.png</file>
     </qresource>
 </RCC>

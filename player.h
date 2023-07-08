@@ -12,22 +12,23 @@ class Player:public QObject, public QGraphicsPixmapItem{
 private:
     QString Name;
     int Health;
-    int Direction;
     bool FirstPlayer;
-    void SetImage();
 public:
     Tank *tank;
     Player(QString name, Tank *tank, bool firstPlayer, QGraphicsItem *parent=0);
     void keyPressEvent(QKeyEvent *event);
+    bool flag = true;
+    bool dirFlag = true;
+    int Direction;
+public slots:
+    void set_flag();
+    void set_dirFlag();
     QString GetName();
     int GetHealth();
     void ChangeDirection(int direction);
     void BeingShot(int firePower);
-    bool flag = true;
-    bool dirFlag = true;
-public slots:
-    void set_flag();
-    void set_dirFlag();
+    void Fire();
+    void SetImage();
 };
 
 #endif // PLAYER_H

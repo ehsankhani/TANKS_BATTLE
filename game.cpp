@@ -91,66 +91,142 @@ void Game::KeySend(int keyInfo)
         return;
     if(keyInfo == Qt::Key_Up)
     {
-        if(!PlayerOne->dirFlag || currentYPlayerOne == 0 || this->Maps[MapIndex].GetBoard()[currentYPlayerOne - 1][currentXPlayerOne] != 0)
+        if(!PlayerOne->dirFlag)
             return;
+        if(currentYPlayerOne == 0 || this->Maps[MapIndex].GetBoard()[currentYPlayerOne - 1][currentXPlayerOne] != 0)
+        {
+            PlayerOne->Direction = 1;
+            PlayerOne->SetImage();
+            return;
+        }
         this->Maps[MapIndex].SetBoard(currentYPlayerOne, currentXPlayerOne, 0);
         this->Maps[MapIndex].SetBoard(currentYPlayerOne - 1, currentXPlayerOne, 5);
         PlayerOne->ChangeDirection(1);
     }
     else if(keyInfo == Qt::Key_Left)
     {
-        if(!PlayerOne->dirFlag || currentXPlayerOne == 0 || this->Maps[MapIndex].GetBoard()[currentYPlayerOne][currentXPlayerOne - 1] != 0)
+        if(!PlayerOne->dirFlag)
             return;
+        if(currentXPlayerOne == 0 || this->Maps[MapIndex].GetBoard()[currentYPlayerOne][currentXPlayerOne - 1] != 0)
+        {
+            PlayerOne->Direction = 2;
+            PlayerOne->SetImage();
+            return;
+        }
         this->Maps[MapIndex].SetBoard(currentYPlayerOne, currentXPlayerOne, 0);
         this->Maps[MapIndex].SetBoard(currentYPlayerOne, currentXPlayerOne - 1, 5);
         PlayerOne->ChangeDirection(2);
     }
     else if(keyInfo == Qt::Key_Right)
     {
-        if(!PlayerOne->dirFlag || currentXPlayerOne + 1 >= this->Maps[MapIndex].GetBoard()[currentYPlayerOne].length() || this->Maps[MapIndex].GetBoard()[currentYPlayerOne][currentXPlayerOne + 1] != 0)
+        if(!PlayerOne->dirFlag)
             return;
+        if(currentXPlayerOne + 1 >= this->Maps[MapIndex].GetBoard()[currentYPlayerOne].length() || this->Maps[MapIndex].GetBoard()[currentYPlayerOne][currentXPlayerOne + 1] != 0)
+        {
+            PlayerOne->Direction = 3;
+            PlayerOne->SetImage();
+            return;
+        }
         this->Maps[MapIndex].SetBoard(currentYPlayerOne, currentXPlayerOne, 0);
         this->Maps[MapIndex].SetBoard(currentYPlayerOne, currentXPlayerOne + 1, 5);
         PlayerOne->ChangeDirection(3);
     }
     else if(keyInfo == Qt::Key_Down)
     {
-        if(!PlayerOne->dirFlag || currentYPlayerOne + 1 >= this->Maps[MapIndex].GetBoard().length() || this->Maps[MapIndex].GetBoard()[currentYPlayerOne + 1][currentXPlayerOne] != 0)
+        if(!PlayerOne->dirFlag)
             return;
+        if(currentYPlayerOne + 1 >= this->Maps[MapIndex].GetBoard().length() || this->Maps[MapIndex].GetBoard()[currentYPlayerOne + 1][currentXPlayerOne] != 0)
+        {
+            PlayerOne->Direction = 4;
+            PlayerOne->SetImage();
+            return;
+        }
         this->Maps[MapIndex].SetBoard(currentYPlayerOne, currentXPlayerOne, 0);
         this->Maps[MapIndex].SetBoard(currentYPlayerOne + 1, currentXPlayerOne, 5);
         PlayerOne->ChangeDirection(4);
     }
+    else if(keyInfo == Qt::Key_K)
+    {
+        if(!PlayerOne->flag)
+            return;
+        PlayerOne->Fire();
+    }
     else if(keyInfo == Qt::Key_W)
     {
-        if(!PlayerTwo->dirFlag || currentYPlayerTwo == 0 || this->Maps[MapIndex].GetBoard()[currentYPlayerTwo - 1][currentXPlayerTwo] != 0)
+        if(!PlayerTwo->dirFlag)
             return;
+        if(currentYPlayerTwo == 0 || this->Maps[MapIndex].GetBoard()[currentYPlayerTwo - 1][currentXPlayerTwo] != 0)
+        {
+            PlayerTwo->Direction = 1;
+            PlayerTwo->SetImage();
+            return;
+        }
         this->Maps[MapIndex].SetBoard(currentYPlayerTwo, currentXPlayerTwo, 0);
         this->Maps[MapIndex].SetBoard(currentYPlayerTwo - 1, currentXPlayerTwo, 6);
         PlayerTwo->ChangeDirection(1);
     }
     else if(keyInfo == Qt::Key_A)
     {
-        if(!PlayerTwo->dirFlag || currentXPlayerTwo == 0 || this->Maps[MapIndex].GetBoard()[currentYPlayerTwo][currentXPlayerTwo - 1] != 0)
+        if(!PlayerTwo->dirFlag)
             return;
+        if(currentXPlayerTwo == 0 || this->Maps[MapIndex].GetBoard()[currentYPlayerTwo][currentXPlayerTwo - 1] != 0)
+        {
+            PlayerTwo->Direction = 2;
+            PlayerTwo->SetImage();
+            return;
+        }
         this->Maps[MapIndex].SetBoard(currentYPlayerTwo, currentXPlayerTwo, 0);
         this->Maps[MapIndex].SetBoard(currentYPlayerTwo, currentXPlayerTwo - 1, 6);
         PlayerTwo->ChangeDirection(2);
     }
     else if(keyInfo == Qt::Key_D)
     {
-        if(!PlayerTwo->dirFlag || currentXPlayerTwo + 1 >= this->Maps[MapIndex].GetBoard()[currentYPlayerTwo].length() || this->Maps[MapIndex].GetBoard()[currentYPlayerTwo][currentXPlayerTwo + 1] != 0)
+        if(!PlayerTwo->dirFlag)
             return;
+        if(currentXPlayerTwo + 1 >= this->Maps[MapIndex].GetBoard()[currentYPlayerTwo].length() || this->Maps[MapIndex].GetBoard()[currentYPlayerTwo][currentXPlayerTwo + 1] != 0)
+        {
+            PlayerTwo->Direction = 3;
+            PlayerTwo->SetImage();
+            return;
+        }
         this->Maps[MapIndex].SetBoard(currentYPlayerTwo, currentXPlayerTwo, 0);
         this->Maps[MapIndex].SetBoard(currentYPlayerTwo, currentXPlayerTwo + 1, 6);
         PlayerTwo->ChangeDirection(3);
     }
     else if(keyInfo == Qt::Key_S)
     {
-        if(!PlayerTwo->dirFlag || currentYPlayerTwo + 1 >= this->Maps[MapIndex].GetBoard().length() || this->Maps[MapIndex].GetBoard()[currentYPlayerTwo + 1][currentXPlayerTwo] != 0)
+        if(!PlayerTwo->dirFlag)
             return;
+        if(currentYPlayerTwo + 1 >= this->Maps[MapIndex].GetBoard().length() || this->Maps[MapIndex].GetBoard()[currentYPlayerTwo + 1][currentXPlayerTwo] != 0)
+        {
+            PlayerTwo->Direction = 4;
+            PlayerTwo->SetImage();
+            return;
+        }
         this->Maps[MapIndex].SetBoard(currentYPlayerTwo, currentXPlayerTwo, 0);
         this->Maps[MapIndex].SetBoard(currentYPlayerTwo + 1, currentXPlayerTwo, 6);
         PlayerTwo->ChangeDirection(4);
+    }
+    else if(keyInfo == Qt::Key_C)
+    {
+        if(!PlayerTwo->flag)
+            return;
+        PlayerTwo->Fire();
+    }
+}
+
+
+void Game::ReduceHealth(int power, bool firstPlayer)
+{
+    if(firstPlayer)
+    {
+        PlayerTwo->BeingShot(power);
+        ShildTwo->SetMessage(this->PlayerTwo->GetName() + " : " + QString::number(this->PlayerTwo->GetHealth()));
+
+    }
+    else
+    {
+        PlayerOne->BeingShot(power);
+        ShildOne->SetMessage(this->PlayerOne->GetName() + " : " + QString::number(this->PlayerOne->GetHealth()));
     }
 }

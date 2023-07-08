@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     addtank.cpp \
     boxitem.cpp \
+    bullet.cpp \
     forest.cpp \
     game.cpp \
     main.cpp \
@@ -27,12 +28,14 @@ SOURCES += \
     player.cpp \
     playerinfoui.cpp \
     tank.cpp \
-    wall.cpp
+    wall.cpp \
+    winnerinfo.cpp
 
 HEADERS += \
     Tank.h \
     addtank.h \
     boxitem.h \
+    bullet.h \
     forest.h \
     game.h \
     mainwindow.h \
@@ -40,12 +43,14 @@ HEADERS += \
     messageitem.h \
     player.h \
     playerinfoui.h \
-    wall.h
+    wall.h \
+    winnerinfo.h
 
 FORMS += \
     addtank.ui \
     mainwindow.ui \
-    playerinfoui.ui
+    playerinfoui.ui \
+    winnerinfo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

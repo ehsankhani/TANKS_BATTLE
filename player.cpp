@@ -5,6 +5,7 @@
 #include <QKeyEvent>
 #include <QTimer>
 #include "game.h"
+#include "bullet.h"
 
 Player::Player(QString name, Tank *tank, bool firstPlayer, QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
 {
@@ -139,4 +140,19 @@ void Player::SetImage()
         else
             setPixmap(QPixmap(":/new/Images/TankImages/Tank_Blue_Down.png"));
     }
+}
+
+void Player::Fire()
+{
+    flag = false;
+    Bullet *bullet = new Bullet(Direction, tank->GetPower(), this->FirstPlayer);
+    if(this->Direction == 1)
+        bullet->setPos(x(), y() - 51);
+    else if(this->Direction == 2)
+        bullet->setPos(x() - 51, y());
+    else if(this->Direction == 3)
+        bullet->setPos(x() + 51, y());
+    else
+        bullet->setPos(x(), y() + 51);
+    scene()->addItem(bullet);
 }
