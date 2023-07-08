@@ -23,6 +23,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     map.cpp \
+    messageitem.cpp \
     player.cpp \
     playerinfoui.cpp \
     tank.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     game.h \
     mainwindow.h \
     map.h \
+    messageitem.h \
     player.h \
     playerinfoui.h \
     wall.h

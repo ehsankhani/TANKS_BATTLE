@@ -62,5 +62,4 @@ void MainWindow::on_BtnPlay_clicked()
     PlayerInfoUI p(this->Tanks, this->Maps, this);
     this->hide();
     p.exec();
-    this->show();
 }

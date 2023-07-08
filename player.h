@@ -10,10 +10,11 @@ class Player:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 private:
     QString Name;
-    Tank *tank;
     int Health;
+    bool FirstPlayer;
 public:
-    Player(QString name, Tank *tank, QGraphicsItem *parent=0);
+    Tank *tank;
+    Player(QString name, Tank *tank, bool firstPlayer, QGraphicsItem *parent=0);
     void keyPressEvent(QKeyEvent *event);
     QString GetName();
     int GetHealth();

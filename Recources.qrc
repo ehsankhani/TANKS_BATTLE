@@ -7,5 +7,21 @@
         <file>OtherImage/wall.png</file>
         <file>OtherImage/box.png</file>
         <file>OtherImage/Forest.png</file>
+        <file>TankImages/Tank_Black_Down.png</file>
+        <file>TankImages/Tank_Black_Left.png</file>
+        <file>TankImages/Tank_Black_Right.png</file>
+        <file>TankImages/Tank_Black_UP.png</file>
+        <file>TankImages/Tank_Green_Down.png</file>
+        <file>TankImages/Tank_Green_Left.png</file>
+        <file>TankImages/Tank_Green_Right.png</file>
+        <file>TankImages/Tank_Green_UP.png</file>
+        <file>TankImages/Tank_Red_Down.png</file>
+        <file>TankImages/Tank_Red_Left.png</file>
+        <file>TankImages/Tank_Red_Right.png</file>
+        <file>TankImages/Tank_Red_UP.png</file>
+        <file>TankImages/Tank_Yellow_Down.png</file>
+        <file>TankImages/Tank_Yellow_Left.png</file>
+        <file>TankImages/Tank_Yellow_Right.png</file>
+        <file>TankImages/Tank_Yellow_UP.png</file>
     </qresource>
 </RCC>

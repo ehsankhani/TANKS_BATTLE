@@ -9,6 +9,7 @@ PlayerInfoUI::PlayerInfoUI(QList<Tank> tanks, QList<Map> maps, QWidget *parent) 
     ui(new Ui::PlayerInfoUI)
 {
     ui->setupUi(this);
+    this->Parent = parent;
     this->Tanks = tanks;
     this->Maps = maps;
     for(int i = 0; i < this->Tanks.length(); i++)
@@ -133,9 +134,9 @@ void PlayerInfoUI::on_BtnPlay_clicked()
                 break;
             }
         }
-        Player *playerOne = new Player(ui->TxtNamePlayerOne->text().trimmed(), &this->Tanks[tankOne]);
-        Player *playerTwo = new Player(ui->TxtNamePlayerTwo->text().trimmed(), &this->Tanks[tankTwo]);
-        Game *game = new Game(playerOne, playerTwo, &this->Maps[mapIndex]);
+        Player *playerOne = new Player(ui->TxtNamePlayerOne->text().trimmed(), &this->Tanks[tankOne], true);
+        Player *playerTwo = new Player(ui->TxtNamePlayerTwo->text().trimmed(), &this->Tanks[tankTwo], false);
+        Game *game = new Game(playerOne, playerTwo, &this->Maps[mapIndex], this->Parent);
         this->close();
     }
 }

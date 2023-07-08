@@ -2,6 +2,7 @@
 #define GAME_H
 #include "player.h"
 #include "map.h"
+#include "messageitem.h"
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
@@ -12,6 +13,9 @@ private:
     Player *PlayerOne;
     Player *PlayerTwo;
     Map *Board;
+    QWidget *Parent;
+    MessageItem *ShildOne;
+    MessageItem *ShildTwo;
 public:
     QGraphicsScene *scene;
     Game(Player *playerOne, Player *playerTwo, Map *board, QWidget *parent=0);

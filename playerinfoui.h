@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "Tank.h"
 #include "map.h"
+#include <QWidget>
 
 namespace Ui {
 class PlayerInfoUI;
@@ -18,6 +19,7 @@ public:
     ~PlayerInfoUI();
     QList<Tank> Tanks;
     QList<Map> Maps;
+    QWidget *Parent;
 private slots:
     void on_CmbTankPlayerOne_currentIndexChanged(const QString &arg1);
 
