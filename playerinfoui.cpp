@@ -88,3 +88,8 @@ void PlayerInfoUI::on_CmbTankPlayerTwo_currentIndexChanged(const QString &arg1)
         }
     }
 }
+
+void PlayerInfoUI::on_BtnPlay_clicked()
+{
+
+}

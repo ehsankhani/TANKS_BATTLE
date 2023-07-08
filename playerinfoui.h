@@ -21,6 +21,8 @@ private slots:
 
     void on_CmbTankPlayerTwo_currentIndexChanged(const QString &arg1);
 
+    void on_BtnPlay_clicked();
+
 private:
     Ui::PlayerInfoUI *ui;
 };
