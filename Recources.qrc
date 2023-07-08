@@ -28,4 +28,7 @@
         <file>FireImages/Fire_Right.png</file>
         <file>FireImages/Fire_UP.png</file>
     </qresource>
+    <qresource prefix="/new/Musics">
+        <file>Musics/bgsound.mp3</file>
+    </qresource>
 </RCC>
