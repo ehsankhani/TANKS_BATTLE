@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>680</width>
-    <height>387</height>
+    <height>420</height>
    </rect>
   </property>
   <property name="font">
@@ -29,20 +29,27 @@
    <widget class="QPushButton" name="BtnPlay">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>121</width>
-      <height>51</height>
+      <x>0</x>
+      <y>50</y>
+      <width>111</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+     <string notr="true">background-color: transparent;
+border: none;
+</string>
     </property>
     <property name="text">
      <string>Play</string>
@@ -51,20 +58,22 @@
    <widget class="QPushButton" name="BtnNewTank">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>0</x>
       <y>80</y>
-      <width>121</width>
-      <height>51</height>
+      <width>111</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+     <string notr="true">background-color: transparent;
+border: none;
+</string>
     </property>
     <property name="text">
      <string>New Tank</string>
@@ -73,20 +82,23 @@
    <widget class="QPushButton" name="BtnExit">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>140</y>
-      <width>121</width>
-      <height>51</height>
+      <x>20</x>
+      <y>120</y>
+      <width>71</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+     <string notr="true">background-color: transparent;
+border: none;
+</string>
     </property>
     <property name="text">
      <string>Exit</string>
@@ -108,10 +120,46 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>20</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string>TANKS BATTLE</string>
+    </property>
+   </widget>
    <zorder>label</zorder>
    <zorder>BtnPlay</zorder>
    <zorder>BtnNewTank</zorder>
    <zorder>BtnExit</zorder>
+   <zorder>label_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -119,7 +167,7 @@
      <x>0</x>
      <y>0</y>
      <width>680</width>
-     <height>24</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

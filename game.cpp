@@ -9,7 +9,6 @@
 #include <QImage>
 #include "winnerinfo.h"
 #include "mainwindow.h"
-#include <QMediaPlayer>
 
 Game::Game(QWidget *parent)
 {
@@ -68,9 +67,6 @@ void Game::Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *pa
             }
         }
     }
-    QMediaPlayer *music = new QMediaPlayer();
-    music->setMedia(QUrl("qrc:/new/Musics/Musics/bgsound.mp3"));
-    music->play();
 }
 
 void Game::KeySend(int keyInfo)

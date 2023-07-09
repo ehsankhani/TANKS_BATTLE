@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>488</height>
+    <height>513</height>
    </rect>
   </property>
   <property name="font">
@@ -73,7 +73,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Tank Speed : </string>
+      <string>Tank Speed :  ( 1 - 5 )</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -114,7 +114,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Tank Bullet Power : </string>
+      <string>Tank Bullet Power : ( 1 - 5 )</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -155,7 +155,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Tank Shield : </string>
+      <string>Tank Shield :  ( 10 -100 )</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -205,6 +205,9 @@
    </item>
    <item>
     <widget class="QComboBox" name="CmbColor">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
      </property>

@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
         if(fileOpen.open(QFile::ReadOnly | QFile::Text))
         {
             QTextStream in(&fileOpen);
-            in.setCodec("UTF-8");
             QString lines = in.readAll();
             QStringList line = lines.split("\n");
             QList<QList<int>> board;
