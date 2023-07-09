@@ -36,3 +36,8 @@ void MainWindow::on_BtnPlay_clicked()
     if(!p.StartGame)
         this->show();
 }
+
+void MainWindow::on_BtnExit_clicked()
+{
+    this->close();
+}
