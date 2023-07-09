@@ -12,7 +12,7 @@
   </property>
   <property name="font">
    <font>
-    <family>B Titr</family>
+    <family>Times New Roman</family>
     <pointsize>12</pointsize>
    </font>
   </property>
@@ -92,7 +92,7 @@
       <item>
        <widget class="QComboBox" name="CmbTankPlayerOne">
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LeftToRight</enum>
         </property>
        </widget>
       </item>
@@ -221,7 +221,7 @@
       <item>
        <widget class="QComboBox" name="CmbMap">
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LeftToRight</enum>
         </property>
        </widget>
       </item>
@@ -297,7 +297,7 @@
       <item>
        <widget class="QComboBox" name="CmbTankPlayerTwo">
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LeftToRight</enum>
         </property>
        </widget>
       </item>
