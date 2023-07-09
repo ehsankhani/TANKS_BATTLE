@@ -27,9 +27,17 @@
         <file>FireImages/Fire_Left.png</file>
         <file>FireImages/Fire_Right.png</file>
         <file>FireImages/Fire_UP.png</file>
+        <file>OtherImage/MainForm.png</file>
+        <file>OtherImage/gamemenu.jpg</file>
     </qresource>
     <qresource prefix="/new/Musics">
         <file>Musics/bgsound.mp3</file>
         <file>Musics/bulletsound.mp3</file>
+    </qresource>
+    <qresource prefix="/new/Maps">
+        <file>maps/map_0.txt</file>
+        <file>maps/map_1.txt</file>
+        <file>maps/map_2.txt</file>
+        <file>maps/map_3.txt</file>
     </qresource>
 </RCC>

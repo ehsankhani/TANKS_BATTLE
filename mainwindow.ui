@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>142</width>
-    <height>227</height>
+    <width>680</width>
+    <height>387</height>
    </rect>
   </property>
   <property name="font">
@@ -17,55 +17,105 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>TANKS BATTLE</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="BtnPlay">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>40</x>
+      <y>20</y>
       <width>121</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
     <property name="text">
-     <string>بازی جدید</string>
+     <string>Play</string>
     </property>
    </widget>
    <widget class="QPushButton" name="BtnNewTank">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>70</y>
+      <x>40</x>
+      <y>80</y>
       <width>121</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
     <property name="text">
-     <string>تانک جدید</string>
+     <string>New Tank</string>
     </property>
    </widget>
    <widget class="QPushButton" name="BtnExit">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>130</y>
+      <x>40</x>
+      <y>140</y>
       <width>121</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
     <property name="text">
-     <string>خروج</string>
+     <string>Exit</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>681</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/new/Images/OtherImage/gamemenu.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>BtnPlay</zorder>
+   <zorder>BtnNewTank</zorder>
+   <zorder>BtnExit</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>142</width>
+     <width>680</width>
      <height>22</height>
     </rect>
    </property>

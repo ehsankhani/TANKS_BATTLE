@@ -20,13 +20,13 @@
    <string>Dialog</string>
   </property>
   <property name="layoutDirection">
-   <enum>Qt::RightToLeft</enum>
+   <enum>Qt::LeftToRight</enum>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
-      <string>اطلاعات بازیکن اول</string>
+      <string>Player One</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
@@ -44,7 +44,7 @@
          </size>
         </property>
         <property name="text">
-         <string>نام بازیکن : </string>
+         <string>Player Name : </string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -82,7 +82,7 @@
          </size>
         </property>
         <property name="text">
-         <string>نوع تانک : </string>
+         <string>Tank : </string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -99,7 +99,7 @@
       <item>
        <widget class="QGroupBox" name="groupBox_3">
         <property name="title">
-         <string>اطلاعات تانک</string>
+         <string>Tank Info</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
@@ -231,7 +231,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>اطلاعات بازیکن دوم</string>
+      <string>Player Two</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
@@ -249,7 +249,7 @@
          </size>
         </property>
         <property name="text">
-         <string>نام بازیکن : </string>
+         <string>Player Name : </string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -287,7 +287,7 @@
          </size>
         </property>
         <property name="text">
-         <string>نوع تانک : </string>
+         <string>Tank : </string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -304,7 +304,7 @@
       <item>
        <widget class="QGroupBox" name="groupBox_4">
         <property name="title">
-         <string>اطلاعات تانک</string>
+         <string>Tank Info</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
@@ -426,7 +426,7 @@
       <item>
        <widget class="QPushButton" name="BtnPlay">
         <property name="text">
-         <string>شروع بازی</string>
+         <string>Play</string>
         </property>
        </widget>
       </item>

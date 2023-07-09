@@ -33,27 +33,27 @@ void PlayerInfoUI::on_CmbTankPlayerOne_currentIndexChanged(const QString &arg1)
     {
         if(game->Tanks[i].GetName() == arg1)
         {
-            ui->LblTankNameOne->setText("نام : " + game->Tanks[i].GetName());
-            ui->LblTankSpeedOne->setText("سرعت : " + QString::number(game->Tanks[i].GetSpeed()));
-            ui->LblTankPowerOne->setText("قدرت : " + QString::number(game->Tanks[i].GetPower()));
-            ui->LblTankShildOne->setText("تحمل زره : " + QString::number(game->Tanks[i].GetShild()));
-            QString result = "رنگ : ";
+            ui->LblTankNameOne->setText("Name : " + game->Tanks[i].GetName());
+            ui->LblTankSpeedOne->setText("Speed : " + QString::number(game->Tanks[i].GetSpeed()));
+            ui->LblTankPowerOne->setText("bullet Power : " + QString::number(game->Tanks[i].GetPower()));
+            ui->LblTankShildOne->setText("Sheild : " + QString::number(game->Tanks[i].GetShild()));
+            QString result = "Color : ";
             switch (game->Tanks[i].GetColor())
             {
             case 1:
-                result += "قرمز";
+                result += "Red";
                 break;
             case 2:
-                result += "سبز";
+                result += "Green";
                 break;
             case 3:
-                result += "زرد";
+                result += "Yellow";
                 break;
             case 4:
-                result += "سیاه";
+                result += "Black";
                 break;
             case 5:
-                result += "آبی";
+                result += "Blue";
                 break;
             }
             ui->LblTankColorOne->setText(result);
@@ -68,27 +68,27 @@ void PlayerInfoUI::on_CmbTankPlayerTwo_currentIndexChanged(const QString &arg1)
     {
         if(game->Tanks[i].GetName() == arg1)
         {
-            ui->LblTankNameTwo->setText("نام : " + game->Tanks[i].GetName());
-            ui->LblTankSpeedTwo->setText("سرعت : " + QString::number(game->Tanks[i].GetSpeed()));
-            ui->LblTankPowerTwo->setText("قدرت : " + QString::number(game->Tanks[i].GetPower()));
-            ui->LblTankShildTwo->setText("تحمل زره : " + QString::number(game->Tanks[i].GetShild()));
-            QString result = "رنگ : ";
+            ui->LblTankNameTwo->setText("Name : " + game->Tanks[i].GetName());
+            ui->LblTankSpeedTwo->setText("Speed : " + QString::number(game->Tanks[i].GetSpeed()));
+            ui->LblTankPowerTwo->setText("bullet Power : " + QString::number(game->Tanks[i].GetPower()));
+            ui->LblTankShildTwo->setText("Sheild : " + QString::number(game->Tanks[i].GetShild()));
+            QString result = "Color : ";
             switch (game->Tanks[i].GetColor())
             {
             case 1:
-                result += "قرمز";
+                result += "Red";
                 break;
             case 2:
-                result += "سبز";
+                result += "Green";
                 break;
             case 3:
-                result += "زرد";
+                result += "Yellow";
                 break;
             case 4:
-                result += "سیاه";
+                result += "Black";
                 break;
             case 5:
-                result += "آبی";
+                result += "Blue";
                 break;
             }
             ui->LblTankColorTwo->setText(result);
@@ -101,12 +101,12 @@ void PlayerInfoUI::on_BtnPlay_clicked()
 {
     if(ui->TxtNamePlayerOne->text().trimmed() == "")
     {
-        QMessageBox::question(this, "پیغام", "لطفا نام بازیکن اول را وارد کنید", QMessageBox::Ok);
+        QMessageBox::question(this, "Message", "Please Enter Player One Name", QMessageBox::Ok);
         ui->TxtNamePlayerOne->setFocus();
     }
     else if(ui->TxtNamePlayerTwo->text().trimmed() == "")
     {
-        QMessageBox::question(this, "پیغام", "لطفا نام بازیکن دوم را وارد کنید", QMessageBox::Ok);
+        QMessageBox::question(this, "Message", "Please Enter Player Two Name", QMessageBox::Ok);
         ui->TxtNamePlayerTwo->setFocus();
     }
     else

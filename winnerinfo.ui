@@ -20,13 +20,13 @@
    <string>Dialog</string>
   </property>
   <property name="layoutDirection">
-   <enum>Qt::RightToLeft</enum>
+   <enum>Qt::LeftToRight</enum>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
-      <string>اطلاعات بازیکن برنده</string>
+      <string>Winner Info</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
@@ -44,7 +44,7 @@
          </size>
         </property>
         <property name="text">
-         <string>نام بازیکن : </string>
+         <string>Player Name : </string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -88,7 +88,7 @@
          </size>
         </property>
         <property name="text">
-         <string>نوع تانک : </string>
+         <string>Tank : </string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -132,7 +132,7 @@
          </size>
         </property>
         <property name="text">
-         <string>امتیاز : </string>
+         <string>Score : </string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -176,7 +176,7 @@
          </size>
         </property>
         <property name="text">
-         <string>جان باقی مانده : </string>
+         <string>Health : </string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
