@@ -33,4 +33,6 @@ void MainWindow::on_BtnPlay_clicked()
     PlayerInfoUI p(this);
     this->hide();
     p.exec();
+    if(!p.StartGame)
+        this->show();
 }

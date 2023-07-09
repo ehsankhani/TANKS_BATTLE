@@ -30,5 +30,6 @@
     </qresource>
     <qresource prefix="/new/Musics">
         <file>Musics/bgsound.mp3</file>
+        <file>Musics/bulletsound.mp3</file>
     </qresource>
 </RCC>

@@ -221,7 +221,6 @@ void Game::KeySend(int keyInfo)
     }
 }
 
-
 void Game::ReduceHealth(int power, bool firstPlayer)
 {
     if(firstPlayer)

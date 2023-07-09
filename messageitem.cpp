@@ -24,7 +24,7 @@ MessageItem::MessageItem(QString message, int color, QGraphicsItem *parent)
     {
         setDefaultTextColor(Qt::blue);
     }
-    setFont(QFont("times", 16));
+    setFont(QFont("B Titr", 12));
 }
 
 void MessageItem::SetMessage(QString message)

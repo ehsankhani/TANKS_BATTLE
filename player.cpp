@@ -9,6 +9,8 @@
 
 Player::Player(QString name, Tank *tank, bool firstPlayer, QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
 {
+    bulletsound = new QMediaPlayer();
+    bulletsound->setMedia(QUrl("qrc:/new/Musics/Musics/bulletsound.mp3"));
     this->FirstPlayer = firstPlayer;
     this->Name = name;
     this->tank = tank;
@@ -154,5 +156,13 @@ void Player::Fire()
         bullet->setPos(x() + 51, y());
     else
         bullet->setPos(x(), y() + 51);
+    if(bulletsound->state()==QMediaPlayer::PlayingState)
+    {
+        bulletsound->setPosition(0);
+    }
+    else if (bulletsound->state()==QMediaPlayer::StoppedState)
+    {
+        bulletsound->play();
+    }
     scene()->addItem(bullet);
 }

@@ -19,6 +19,7 @@ public:
     explicit PlayerInfoUI(QWidget *parent = nullptr);
     ~PlayerInfoUI();
     QWidget *Parent;
+    bool StartGame = false;
 private slots:
     void on_CmbTankPlayerOne_currentIndexChanged(const QString &arg1);
 
