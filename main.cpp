@@ -18,6 +18,20 @@ int main(int argc, char *argv[])
     game->Tanks.append(*tank);
     game->Tanks.append(*tank2);
     game->Tanks.append(*tank3);
+    QDir tankDir(QCoreApplication::applicationDirPath() + "/tanks/");
+    for (const QFileInfo &file : tankDir.entryInfoList(QDir::Files))
+    {
+        QFile fileOpen(QCoreApplication::applicationDirPath() + "/tanks/" + file.fileName());
+        if(fileOpen.open(QFile::ReadOnly | QFile::Text))
+        {
+            QTextStream in(&fileOpen);
+            in.setCodec("UTF-8");
+            QString lines = in.readAll();
+            QStringList line = lines.split("\n");
+            Tank *newTank = new Tank(line[0], line[1].toInt(), line[2].toInt(), line[3].toInt(), line[4].toInt());
+            game->Tanks.append(*newTank);
+        }
+    }
     //0 -> Empty
     //1 -> wall
     //2 -> box
@@ -27,48 +41,14 @@ int main(int argc, char *argv[])
     QDir dir(":/new/Maps/maps/");
     for (const QFileInfo &file : dir.entryInfoList(QDir::Files))
     {
-        QFile fileOpen(":/new/Maps/maps/" + file.fileName());
-        if(fileOpen.open(QFile::ReadOnly | QFile::Text))
-        {
-            QTextStream in(&fileOpen);
-            in.setCodec("UTF-8");
-            QString lines = in.readAll();
-            QStringList line = lines.split("\n");
-            QList<QList<int>> board;
-
-            for(int j = 0; j < line.length(); j++)
-            {
-                QStringList fields = line[j].split(" ");
-                QList<int> row;
-                for(int i = 0; i < fields.length(); i++)
-                {
-                    row.append(fields[i].toInt());
-                }
-                board.append(row);
-            }
-            if(board.length() == 0)
-                continue;
-            int x = -1, y = -1;
-            do
-            {
-                x = rand() % (board[0].length() - 1);
-                y = rand() % (board.length() - 1);
-            }while(board[y][x] != 0);
-
-            board[y][x] = 5;
-            x = -1;
-            y = -1;
-            do
-            {
-                x = rand() % (board[0].length() - 1);
-                y = rand() % (board.length() - 1);
-            }while(board[y][x] != 0);
-            board[y][x] = 6;
-
-            Map *map = new Map(file.fileName(), board);
-            game->Maps.append(*map);
-        }
+        QFile my_file(":/new/Maps/maps/" + file.fileName());
+        QDir my_app_dir(QCoreApplication::applicationDirPath() + "/maps/");
+        if(!my_app_dir.exists())
+            QDir().mkdir(my_app_dir.path());
+        QString new_path = my_app_dir.absoluteFilePath(file.fileName());
+        my_file.copy(new_path);
     }
+    game->ReadMaps();
     w.show();
     return a.exec();
 }

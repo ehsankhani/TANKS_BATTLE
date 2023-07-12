@@ -1,4 +1,8 @@
 #include "Tank.h"
+#include <QCoreApplication>
+#include <QFile>
+#include <QTextStream>
+#include <QDir>
 
 Tank::Tank(QString name, int speed, int power, int shild, int color)
 {
@@ -32,4 +36,28 @@ int Tank::GetShild()
 int Tank::GetColor()
 {
     return this->Color;
+}
+
+void Tank::WriteInFile()
+{
+    QDir my_app_dir(QCoreApplication::applicationDirPath() + "/tanks/");
+    if(!my_app_dir.exists())
+        QDir().mkdir(my_app_dir.path());
+    QString path = QCoreApplication::applicationDirPath() + "/tanks/" + this->Name + ".txt";
+    QFile *file = new QFile(path);
+    if (file->open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out(file);
+        out<<this->Name;
+        out<<"\n";
+        out<<this->Speed;
+        out<<"\n";
+        out<<this->Power;
+        out<<"\n";
+        out<<this->Shild;
+        out<<"\n";
+        out<<this->Color;
+    }
+    file->flush();
+    file->close();
 }

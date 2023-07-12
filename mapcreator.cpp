@@ -1,8 +1,10 @@
 #include "mapcreator.h"
 #include "mapcreatoritem.h"
+#include "game.h"
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
+#include <QApplication>
 
 MapCreator::MapCreator(QWidget *parent)
 {
@@ -36,14 +38,15 @@ void MapCreator::Start()
     scene->addItem(item);
 }
 
+extern Game *game;
 void MapCreator::Save()
 {
-    QString path = ":/new/Maps/maps/" + this->map->GetName() + ".txt";
+    QString path = QCoreApplication::applicationDirPath() + "/maps/" + this->map->GetName() + ".txt";
     QFile *file = new QFile(path);
     int counter = 1;
     while(file->exists())
     {
-        path = ":/new/Maps/maps/" + this->map->GetName() + "(" + QString::number(counter) + ").txt";
+        path = QCoreApplication::applicationDirPath() + "/maps/" + this->map->GetName() + "(" + QString::number(counter) + ").txt";
         file = new QFile(path);
         counter++;
     }
@@ -54,15 +57,19 @@ void MapCreator::Save()
             QTextStream out(file);
             for(int j = 0; j < map->GetBoard()[i].length(); j++)
             {
-                QString q = QString::number(map->GetBoard()[i][j]) + " ";
+                QString q = QString::number(map->GetBoard()[i][j]);
+                if((j + 1) != map->GetBoard()[i].length())
+                    q += " ";
                 q = q.toUtf8();
                 out<<q;
             }
-            out<<"\n";
+            if((i + 1) != map->GetBoard().length())
+                out<<"\n";
         }
     }
     file->flush();
     file->close();
+    game->ReadMaps();
     QMessageBox::question(this, "Message", "Map Saved...", QMessageBox::Ok);
     view->close();
 }

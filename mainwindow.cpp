@@ -25,6 +25,7 @@ void MainWindow::on_BtnNewTank_clicked()
     a.exec();
     if(a.result)
     {
+        a.tank->WriteInFile();
         game->Tanks.append(*a.tank);
     }
 }

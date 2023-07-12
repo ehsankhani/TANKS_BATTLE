@@ -17,6 +17,7 @@ public:
     int GetPower();
     int GetShild();
     int GetColor();
+    void WriteInFile();
 };
 
 #endif // TANK_H

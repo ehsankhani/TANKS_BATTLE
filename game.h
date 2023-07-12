@@ -27,6 +27,7 @@ public slots:
     void Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *parent=0);
     void KeySend(int keyInfo);
     void ReduceHealth(int power, bool firstPlayer);
+    void ReadMaps();
 };
 
 #endif // GAME_H

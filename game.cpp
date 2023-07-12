@@ -10,6 +10,8 @@
 #include "winnerinfo.h"
 #include "mainwindow.h"
 #include <QMediaPlayer>
+#include <QApplication>
+#include <QDir>
 
 Game::Game(QWidget *parent)
 {
@@ -32,7 +34,7 @@ void Game::Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *pa
     view->show();
     this->ShildOne = new MessageItem(this->PlayerOne->GetName() + " : " + QString::number(this->PlayerOne->GetHealth()), this->PlayerOne->tank->GetColor());
     this->ShildTwo = new MessageItem(this->PlayerTwo->GetName() + " : " + QString::number(this->PlayerTwo->GetHealth()), this->PlayerTwo->tank->GetColor());
-    this->ShildTwo->setPos(1000, 0);
+    this->ShildTwo->setPos(view->x() - 50, 0);
     scene->addItem(ShildOne);
     scene->addItem(ShildTwo);
     for(int i = 0; i < Maps[MapIndex].GetBoard().length(); i++)
@@ -230,6 +232,7 @@ void Game::ReduceHealth(int power, bool firstPlayer)
         if(PlayerTwo->GetHealth() <= 0)
         {
             view->close();
+            this->ReadMaps();
             WinnerInfo winner(PlayerOne->GetName(), PlayerOne->tank->GetName(), PlayerTwo->tank->GetShild(), PlayerOne->GetHealth());
             winner.exec();
             this->Parent->show();
@@ -242,9 +245,60 @@ void Game::ReduceHealth(int power, bool firstPlayer)
         if(PlayerOne->GetHealth() <= 0)
         {
             view->close();
+            this->ReadMaps();
             WinnerInfo winner(PlayerTwo->GetName(), PlayerTwo->tank->GetName(), PlayerOne->tank->GetShild(), PlayerTwo->GetHealth());
             winner.exec();
             this->Parent->show();
+        }
+    }
+}
+
+void Game::ReadMaps()
+{
+    this->Maps.clear();
+    QDir myDir(QCoreApplication::applicationDirPath() + "/maps/");
+    for (const QFileInfo &file : myDir.entryInfoList(QDir::Files))
+    {
+        QFile fileOpen(QCoreApplication::applicationDirPath() + "/maps/" + file.fileName());
+        if(fileOpen.open(QFile::ReadOnly | QFile::Text))
+        {
+            QTextStream in(&fileOpen);
+            in.setCodec("UTF-8");
+            QString lines = in.readAll();
+            QStringList line = lines.split("\n");
+            QList<QList<int>> board;
+
+            for(int j = 0; j < line.length(); j++)
+            {
+                QStringList fields = line[j].split(" ");
+                QList<int> row;
+                for(int i = 0; i < fields.length(); i++)
+                {
+                    row.append(fields[i].toInt());
+                }
+                board.append(row);
+            }
+            if(board.length() == 0)
+                continue;
+            int x = -1, y = -1;
+            do
+            {
+                x = rand() % (board[0].length() - 1);
+                y = rand() % (board.length() - 1);
+            }while(board[y][x] != 0);
+
+            board[y][x] = 5;
+            x = -1;
+            y = -1;
+            do
+            {
+                x = rand() % (board[0].length() - 1);
+                y = rand() % (board.length() - 1);
+            }while(board[y][x] != 0);
+            board[y][x] = 6;
+
+            Map *map = new Map(file.fileName(), board);
+            this->Maps.append(*map);
         }
     }
 }
