@@ -8,8 +8,8 @@
 #include <QFont>
 #include <QImage>
 #include "winnerinfo.h"
-#include "mainwindow.h"
-#include <QMediaPlayer>
+//#include "mainwindow.h"
+//#include <QMediaPlayer>
 #include <QApplication>
 #include <QDir>
 
@@ -34,7 +34,7 @@ void Game::Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *pa
     view->show();
     this->ShildOne = new MessageItem(this->PlayerOne->GetName() + " : " + QString::number(this->PlayerOne->GetHealth()), this->PlayerOne->tank->GetColor());
     this->ShildTwo = new MessageItem(this->PlayerTwo->GetName() + " : " + QString::number(this->PlayerTwo->GetHealth()), this->PlayerTwo->tank->GetColor());
-    this->ShildTwo->setPos(view->x() - 50, 0);
+    this->ShildTwo->setPos((Maps[MapIndex].GetBoard()[0].length() - 3) * 50, 0);
     scene->addItem(ShildOne);
     scene->addItem(ShildTwo);
     for(int i = 0; i < Maps[MapIndex].GetBoard().length(); i++)
@@ -70,9 +70,9 @@ void Game::Start(Player *playerOne, Player *playerTwo, int mapIndex, QWidget *pa
             }
         }
     }
-    QMediaPlayer *music = new QMediaPlayer();
-    music->setMedia(QUrl("qrc:/new/Musics/Musics/bgsound.mp3"));
-    music->play();
+    //QMediaPlayer *music = new QMediaPlayer();
+    //music->setMedia(QUrl("qrc:/new/Musics/Musics/bgsound.mp3"));
+    //music->play();
 }
 
 void Game::KeySend(int keyInfo)
@@ -263,7 +263,7 @@ void Game::ReadMaps()
         if(fileOpen.open(QFile::ReadOnly | QFile::Text))
         {
             QTextStream in(&fileOpen);
-            in.setCodec("UTF-8");
+            //in.setCodec("UTF-8");
             QString lines = in.readAll();
             QStringList line = lines.split("\n");
             QList<QList<int>> board;

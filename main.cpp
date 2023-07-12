@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
         if(fileOpen.open(QFile::ReadOnly | QFile::Text))
         {
             QTextStream in(&fileOpen);
-            in.setCodec("UTF-8");
+            //in.setCodec("UTF-8");
             QString lines = in.readAll();
             QStringList line = lines.split("\n");
             Tank *newTank = new Tank(line[0], line[1].toInt(), line[2].toInt(), line[3].toInt(), line[4].toInt());
@@ -36,8 +36,6 @@ int main(int argc, char *argv[])
     //1 -> wall
     //2 -> box
     //3 -> Forest
-    //5 -> playerOne
-    //6 -> playerTwo
     QDir dir(":/new/Maps/maps/");
     for (const QFileInfo &file : dir.entryInfoList(QDir::Files))
     {

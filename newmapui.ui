@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>318</width>
-    <height>320</height>
+    <width>322</width>
+    <height>335</height>
    </rect>
   </property>
   <property name="font">
@@ -73,7 +73,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Height :</string>
+      <string>Height : ( 1 - 13 )</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -114,7 +114,7 @@
       </size>
      </property>
      <property name="text">
-      <string>width : </string>
+      <string>width : ( 1 - 27 )</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

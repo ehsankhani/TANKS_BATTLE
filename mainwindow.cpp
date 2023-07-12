@@ -4,7 +4,7 @@
 #include "playerinfoui.h"
 #include "newmapui.h"
 #include "Tank.h"
-#include "map.h"
+//#include "map.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

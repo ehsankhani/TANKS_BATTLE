@@ -21,11 +21,11 @@ public:
     QWidget *Parent;
     bool StartGame = false;
 private slots:
-    void on_CmbTankPlayerOne_currentIndexChanged(const QString &arg1);
-
-    void on_CmbTankPlayerTwo_currentIndexChanged(const QString &arg1);
-
     void on_BtnPlay_clicked();
+
+    void on_CmbTankPlayerOne_currentTextChanged(const QString &arg1);
+
+    void on_CmbTankPlayerTwo_currentTextChanged(const QString &arg1);
 
 private:
     Ui::PlayerInfoUI *ui;

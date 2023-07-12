@@ -6,7 +6,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <QGraphicsView>
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 
 class Player:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -14,7 +14,7 @@ private:
     QString Name;
     int Health;
     bool FirstPlayer;
-    QMediaPlayer *bulletsound;
+    //QMediaPlayer *bulletsound;
 public:
     Tank *tank;
     Player(QString name, Tank *tank, bool firstPlayer, QGraphicsItem *parent=0);
