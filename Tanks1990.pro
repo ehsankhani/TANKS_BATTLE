@@ -25,7 +25,10 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     map.cpp \
+    mapcreator.cpp \
+    mapcreatoritem.cpp \
     messageitem.cpp \
+    newmapui.cpp \
     player.cpp \
     playerinfoui.cpp \
     tank.cpp \
@@ -41,7 +44,10 @@ HEADERS += \
     game.h \
     mainwindow.h \
     map.h \
+    mapcreator.h \
+    mapcreatoritem.h \
     messageitem.h \
+    newmapui.h \
     player.h \
     playerinfoui.h \
     wall.h \
@@ -50,6 +56,7 @@ HEADERS += \
 FORMS += \
     addtank.ui \
     mainwindow.ui \
+    newmapui.ui \
     playerinfoui.ui \
     winnerinfo.ui
 

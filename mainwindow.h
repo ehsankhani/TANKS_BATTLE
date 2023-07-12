@@ -24,6 +24,8 @@ private slots:
 
     void on_BtnExit_clicked();
 
+    void on_BtnNewMap_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

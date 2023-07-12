@@ -74,7 +74,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>140</y>
+      <y>200</y>
       <width>121</width>
       <height>51</height>
      </rect>
@@ -108,10 +108,33 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="BtnNewMap">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>140</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>New Map</string>
+    </property>
+   </widget>
    <zorder>label</zorder>
    <zorder>BtnPlay</zorder>
    <zorder>BtnNewTank</zorder>
    <zorder>BtnExit</zorder>
+   <zorder>BtnNewMap</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -119,7 +142,7 @@
      <x>0</x>
      <y>0</y>
      <width>680</width>
-     <height>24</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

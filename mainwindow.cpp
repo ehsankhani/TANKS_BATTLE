@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "addtank.h"
 #include "playerinfoui.h"
+#include "newmapui.h"
 #include "Tank.h"
 #include "map.h"
 
@@ -40,4 +41,10 @@ void MainWindow::on_BtnPlay_clicked()
 void MainWindow::on_BtnExit_clicked()
 {
     this->close();
+}
+
+void MainWindow::on_BtnNewMap_clicked()
+{
+    NewMapUI a(this);
+    a.exec();
 }

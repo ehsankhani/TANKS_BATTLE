@@ -29,6 +29,8 @@
         <file>FireImages/Fire_UP.png</file>
         <file>OtherImage/MainForm.png</file>
         <file>OtherImage/gamemenu.jpg</file>
+        <file>OtherImage/Blank.png</file>
+        <file>OtherImage/save.png</file>
     </qresource>
     <qresource prefix="/new/Musics">
         <file>Musics/bgsound.mp3</file>

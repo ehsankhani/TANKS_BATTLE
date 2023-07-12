@@ -1,14 +1,17 @@
 #include "mainwindow.h"
 #include "game.h"
+#include "mapcreator.h"
 #include <QApplication>
 #include <QDir>
 
 Game *game;
+MapCreator *mapCreator;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
     game = new Game(&w);
+    mapCreator = new MapCreator();
     Tank *tank = new Tank("panzer", 3, 3, 20, 1);
     Tank *tank2 = new Tank("Tiger", 4, 4, 15, 2);
     Tank *tank3 = new Tank("Abraham", 5, 2, 15, 3);
